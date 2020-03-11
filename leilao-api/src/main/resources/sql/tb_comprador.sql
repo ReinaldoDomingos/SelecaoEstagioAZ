@@ -27,6 +27,6 @@ ALTER TABLE public.tb_comprador
 
 
 -- INSERTS NA TABELA COMPRADOR
-INSERT INTO public.tb_comprador(empresa, leilao)
-	VALUES (1, 2),(2,1),(2,10),(3,2),(5,4),(4,7),
+INSERT INTO public.tb_comprador(empresa, leilao) VALUES
+    (1, 2),(2,1),(2,10),(3,2),(5,4),(4,7),
 	(9,5),(12,12),(13,1),(5,5),(8,9),(10,9),(3,4),(9,11)

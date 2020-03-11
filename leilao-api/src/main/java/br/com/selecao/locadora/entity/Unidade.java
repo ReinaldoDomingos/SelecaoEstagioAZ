@@ -1,8 +1,5 @@
 package br.com.selecao.locadora.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.springframework.data.annotation.CreatedDate;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;

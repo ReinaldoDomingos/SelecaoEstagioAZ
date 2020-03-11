@@ -4,7 +4,6 @@ import br.com.selecao.locadora.entity.Unidade;
 import br.com.selecao.locadora.repository.UnidadeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
