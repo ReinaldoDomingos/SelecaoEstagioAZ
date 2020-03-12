@@ -42,3 +42,5 @@ INSERT INTO public.tb_unidade(id, nome)	VALUES
 , (7, 'Unidade 7'), (8, 'Unidade 8'), (9, 'Unidade 9')
 , (10, 'Unidade 10'),(11, 'Unidade 11'), (12, 'Unidade 12')
 , (13, 'Unidade 13'),(14, 'Unidade 14'),(15, 'Unidade 15');
+
+CREATE SEQUENCE seq_unidade START 16;

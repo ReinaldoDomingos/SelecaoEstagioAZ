@@ -48,3 +48,5 @@ INSERT INTO public.tb_leilao(id, codigo, descricao, vendedor, inicio_previsto) V
 (10, 10,'leilao 10', 1, '2020-07-29'),
 (11, 10,'leilao 11', 1, '2011-02-28'),
 (12, 10,'leilao 12', 1, '2001-03-02');
+
+CREATE SEQUENCE seq_leilao START 13;

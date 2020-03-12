@@ -27,6 +27,9 @@ public class Empresa implements Serializable {
     @Column(name = "NUMERO")
     private String numero;
 
+    @Column(name = "MUNICIPIO")
+    private String municipio;
+
     @Column(name = "COMPLEMENTO")
     private String complemento;
 
@@ -177,6 +180,13 @@ public class Empresa implements Serializable {
         this.updatedAt = updateAt;
     }
 
+    public String getMunicipio() {
+        return municipio;
+    }
+
+    public void setMunicipio(String municipio) {
+        this.municipio = municipio;
+    }
 
     @PrePersist
     void prePersist() {

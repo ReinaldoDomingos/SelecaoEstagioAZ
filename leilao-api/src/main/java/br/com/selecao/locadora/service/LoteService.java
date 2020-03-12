@@ -1,21 +1,43 @@
 package br.com.selecao.locadora.service;
 
 import br.com.selecao.locadora.business.LoteBO;
+import br.com.selecao.locadora.entity.Lote;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
 
 @RestController
-@RequestMapping(value = "/lotes")
 public class LoteService {
 
     @Autowired
     private LoteBO loteBO;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "/lote", method = RequestMethod.GET)
     public ResponseEntity<?> buscarTodos() {
         return ResponseEntity.ok().body(loteBO.buscarTodos());
+    }
+
+    @RequestMapping(value = "/lote/{id}", method = RequestMethod.GET)
+    public ResponseEntity<Lote> buscarLote(@PathVariable("id") @NotNull @DecimalMin("0") Long loteId) {
+        return ResponseEntity.ok().body(loteBO.buscarLote(loteId));
+    }
+
+    @RequestMapping(value = "/lote", method = RequestMethod.POST)
+    public void addLote(@Valid @RequestBody Lote lote) {
+        loteBO.add(lote);
+    }
+
+    @RequestMapping(value = "/lote/{id}", method = RequestMethod.PUT)
+    public void update(@PathVariable("id") @NotNull @DecimalMin("0") Long loteId, @RequestBody Lote lote) {
+        loteBO.update(loteId, lote);
+    }
+
+    @RequestMapping(value = "/lote/{id}", method = RequestMethod.DELETE)
+    public void deleteLote(@PathVariable("id") @NotNull @DecimalMin("0") Long loteId) {
+        loteBO.delete(loteId);
     }
 }

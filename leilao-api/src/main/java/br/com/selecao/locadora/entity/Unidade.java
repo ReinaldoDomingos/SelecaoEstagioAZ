@@ -12,7 +12,7 @@ public class Unidade implements Serializable {
 
     @Id
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "seq_unidade")
+    @GeneratedValue(generator = "seq_unidade")
     private Long id;
 
     @Column(name = "NOME")
@@ -44,7 +44,7 @@ public class Unidade implements Serializable {
         return createAt;
     }
 
-    public void setCreateAt(Date createAt) {
+    public void setCreatedAt(Date createAt) {
         this.createAt = createAt;
     }
 
@@ -59,7 +59,7 @@ public class Unidade implements Serializable {
         return updateAt;
     }
 
-    public void setUpdateAt(Date updateAt) {
+    public void setUpdatedAt(Date updateAt) {
         this.updateAt = updateAt;
     }
 
@@ -74,5 +74,15 @@ public class Unidade implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Unidade{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", createAt=" + createAt +
+                ", updateAt=" + updateAt +
+                '}';
     }
 }

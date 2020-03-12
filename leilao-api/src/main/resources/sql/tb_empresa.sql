@@ -57,4 +57,6 @@ INSERT INTO public.tb_empresa(id, razao_social, cnpj, logradouro, municipio, num
 	 (10, 'Minério SA', '19207232361522', 'Rua das Carmelias','Coxim', null, 'Ao lado do Espetinho JP', 'Centro', '78500000', '659934887764', 'reijunior100@gmail.com', 'http://www.ms.gov.br/', 'pedro100', 'admin@1234'),
 	 (11, 'Farmácia do Ailton', '09207712376523', 'Rua Independencia','Alcinópolis', '55', 'Perto da Maria', 'Senhor Divino', '79400100', '67999887761', 'reijunior100@gmail.com', 'http://www.dataprev.gov.br/', 'felipe90', 'admin1234'),
 	 (12, 'Loja Tigre', '1092721276523', 'Rua Vera de Souza','Coxim', '63', 'Casa A', 'Piracema', '79200001', '67929887766', 'reijunior100@gmail.com', 'http://google.com/', 'jorge10', '12345'),
-	 (13, 'Barbearia do João', '20722342576523', 'Rua dos geranios','Coxim', '65', null, 'Centro', '79400000', '67979187766', 'reijunior100@gmail.com', 'https://github.com/ReinaldoDomingos/', 'joao99', 'jsoajoda')
+	 (13, 'Barbearia do João', '20722342576523', 'Rua dos geranios','Coxim', '65', null, 'Centro', '79400000', '67979187766', 'reijunior100@gmail.com', 'https://github.com/ReinaldoDomingos/', 'joao99', 'jsoajoda');
+
+CREATE SEQUENCE seq_empresa START 14;

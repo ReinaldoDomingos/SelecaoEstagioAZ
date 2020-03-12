@@ -1,5 +1,9 @@
 package br.com.selecao.locadora.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -15,8 +19,16 @@ public class Lote implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "seq_leilao")
     private Long id;
 
+/*
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "LEILAO_LOTE_FK", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
+    private Lote leilao_lote_fk;
+*/
+
     @Column(name = "NUMERO_LOTE")
-    private Long codigo;
+    private Long numeroLote;
 
     @Column(name = "DESCRICAO")
     private String descricao;
@@ -34,10 +46,10 @@ public class Lote implements Serializable {
     private Long leilao;
 
     @Column(name = "CREATED_AT")
-    private Date createAt;
+    private Date createdAt;
 
     @Column(name = "UPDATED_AT")
-    private Date updateAt;
+    private Date updatedAt;
 
     public Long getId() {
         return id;
@@ -47,12 +59,12 @@ public class Lote implements Serializable {
         this.id = id;
     }
 
-    public Long getCodigo() {
-        return codigo;
+    public Long getNumeroLote() {
+        return numeroLote;
     }
 
-    public void setCodigo(Long codigo) {
-        this.codigo = codigo;
+    public void setNumeroLote(Long codigo) {
+        this.numeroLote = codigo;
     }
 
     public String getDescricao() {
@@ -95,26 +107,36 @@ public class Lote implements Serializable {
         this.leilao = leilao;
     }
 
-    public Date getCreateAt() {
-        return createAt;
+    public Date getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreateAt(Date createAt) {
-        this.createAt = createAt;
+    public void setCreatedAt(Date createAt) {
+        this.createdAt = createAt;
     }
 
-    public Date getUpdateAt() {
-        return updateAt;
+    public Date getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setUpdateAt(Date updateAt) {
-        this.updateAt = updateAt;
+    public void setUpdatedAt(Date updateAt) {
+        this.updatedAt = updateAt;
     }
+
+/*
+    public Lote getLeilao_lote_fk() {
+        return leilao_lote_fk;
+    }
+
+    public void setLeilao_lote_fk(Lote leilao_lote_fk) {
+        this.leilao_lote_fk = leilao_lote_fk;
+    }
+*/
 
     @PrePersist
     void prePersist() {
-        if (this.createAt == null) createAt = new Date();
-        if (this.updateAt == null) updateAt = new Date();
+        if (this.createdAt == null) createdAt = new Date();
+        if (this.updatedAt == null) updatedAt = new Date();
     }
 
     @Override
@@ -124,6 +146,7 @@ public class Lote implements Serializable {
         Lote leilao = (Lote) o;
         return id.equals(leilao.id);
     }
+
 
     @Override
     public int hashCode() {

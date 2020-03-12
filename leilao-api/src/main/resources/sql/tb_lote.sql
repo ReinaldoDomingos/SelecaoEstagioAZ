@@ -55,3 +55,5 @@ VALUES (1, 1, 'lote 1', 3, null, 'undidade', 2),
        (13, 22, 'lote 22', 32, 30000, 'undidade 4', 12),
        (14, 13, 'lote 13', 33, 7000, 'undidade 5', 2),
        (15, 14, 'lote 14', 90, null, 'undidade 6', 3);
+
+CREATE SEQUENCE seq_lote START 16;

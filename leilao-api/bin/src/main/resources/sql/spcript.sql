@@ -1,0 +1,11 @@
+--esse script deve ser utilizado apenas para testar o projeto de exemplo
+--OBS: não deve utilizado como padrão para os scripts da prova.
+CREATE SEQUENCE seq_unidade INCREMENT 1 MINVALUE 1 MAXVALUE 9999999 START 1 CACHE 1;
+create table tb_unidade
+(
+    id     integer primary key,
+    nome character varying
+);
+
+insert into tb_unidade(1,'item1');
+insert into tb_unidade(2,'item2');
