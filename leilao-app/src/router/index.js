@@ -1,9 +1,15 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Unidades from '../views/unidade/Unidades.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
+    {
+        path: '/',
+        name: 'Home',
+        component: Unidades
+    },
     {
         path: '/unidades',
         name: 'Unidades',

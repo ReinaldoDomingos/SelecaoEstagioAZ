@@ -4,6 +4,7 @@
 
 CREATE TABLE public.tb_comprador
 (
+    id integer NOT NULL,
     empresa integer NOT NULL,
     leilao integer NOT NULL,
     CONSTRAINT comprador_pk PRIMARY KEY (empresa, leilao),
@@ -27,6 +28,8 @@ ALTER TABLE public.tb_comprador
 
 
 -- INSERTS NA TABELA COMPRADOR
-INSERT INTO public.tb_comprador(empresa, leilao) VALUES
-    (1, 2),(2,1),(2,10),(3,2),(5,4),(4,7),
-	(9,5),(12,12),(13,1),(5,5),(8,9),(10,9),(3,4),(9,11)
+INSERT INTO public.tb_comprador(id,empresa, leilao) VALUES
+    (1,1, 2),(2,2,1),(3,2,10),(4,3,2),(5,5,4),(6,4,7),(7,9,5),
+	(8,12,12),(9,13,1),(10,5,5),(11,8,9),(12,10,9),(13,3,4),(14,9,11);
+
+CREATE SEQUENCE seq_comprador START 15;

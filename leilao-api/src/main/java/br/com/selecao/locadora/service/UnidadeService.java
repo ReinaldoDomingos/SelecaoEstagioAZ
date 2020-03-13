@@ -33,6 +33,7 @@ public class UnidadeService {
 
     @RequestMapping(value = "/unidades/{id}", method = RequestMethod.PUT)
     public void update(@PathVariable("id") @NotNull @DecimalMin("0") Long unidadeId, @RequestBody Unidade unidade) {
+        System.out.println("update " + unidadeId);
         unidadeBO.update(unidadeId, unidade);
     }
 

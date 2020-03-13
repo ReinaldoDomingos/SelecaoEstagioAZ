@@ -20,8 +20,14 @@ public class CompradorBO {
         return compradorRepository.findAll();
     }
 
-    public Comprador buscarComprador(CompradorId id) {
-        return compradorRepository.findOne(id);
+    public Comprador buscarComprador(Long id) {
+        CompradorId compradorId = null;
+        List<Comprador> todos = buscarTodos();
+//        for (int i = 0; i < todos.size(); i++) {
+//            if (todos.get(i).getId().equals(id))
+//                compradorId = new CompradorId(todos.get(i).getEmpresa(), todos.get(i).getLeilao());
+//        }
+        return compradorRepository.findOne(compradorId);
     }
 
     public void add(Comprador comprador) {
@@ -31,14 +37,27 @@ public class CompradorBO {
         compradorRepository.saveAndFlush(comprador1);
     }
 
-    public void update(CompradorId id, Comprador comprador) {
+    public void update(Long id, Comprador comprador) {
+        CompradorId compradorId = null;
+        List<Comprador> todos = buscarTodos();
+//        for (int i = 0; i < todos.size(); i++) {
+//            if (todos.get(i).getId().equals(id))
+//                compradorId = new CompradorId(todos.get(i).getEmpresa(), todos.get(i).getLeilao());
+//        }
         Comprador comprador1 = new Comprador();
-        comprador1.setLeilao(id.getLeilao());
-        comprador1.setEmpresa(id.getEmpresa());
+//        comprador1.setId(comprador.getId());
+        comprador1.setEmpresa(comprador.getEmpresa());
+        comprador1.setLeilao(comprador.getLeilao());
         compradorRepository.saveAndFlush(comprador1);
     }
 
-    public void delete(CompradorId id) {
-        compradorRepository.delete(id);
+    public void delete(Long id) {
+        CompradorId compradorId = null;
+        List<Comprador> todos = buscarTodos();
+//        for (int i = 0; i < todos.size(); i++) {
+//            if (todos.get(i).getId().equals(id))
+//                compradorId = new CompradorId(todos.get(i).getEmpresa(), todos.get(i).getLeilao());
+//        }
+        compradorRepository.delete(compradorId);
     }
 }
