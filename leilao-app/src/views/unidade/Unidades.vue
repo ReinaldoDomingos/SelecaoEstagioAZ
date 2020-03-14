@@ -1,8 +1,19 @@
 <template>
     <v-app>
-        <!--<v-content></v-content>-->
-        <v-data-table :headers="headers" :items="items" sort-by="id" class="elevation-1">
+        <v-data-table :headers="headers" :items="items" sort-by="id" class="elevation-1"
+                      :search="search" no-results-text="Nenhum resultado encontrado">
             <template v-slot:top>
+                <v-card-title>
+                    Unidades Cadastradas
+                    <v-spacer></v-spacer>
+                    <v-text-field
+                            v-model="search"
+                            append-icon="mdi-magnify"
+                            label="Pesquisar por unidade"
+                            single-line
+                            hide-details
+                    ></v-text-field>
+                </v-card-title>
                 <v-toolbar flat color="white">
                     <v-toolbar-title>Unidades Cadastradas</v-toolbar-title>
                     <v-divider class="mx-4" inset vertical></v-divider>
@@ -40,7 +51,10 @@
                 <v-icon small color="" @click="deleteItem(item)">mdi-delete</v-icon>
             </template>
             <template v-slot:no-data>
-                <v-btn color="primary" @click="iniciar">Reload</v-btn>
+                <v-btn color="primary" @click="iniciar">
+                    <v-icon class="mr-2">mdi-reload</v-icon>
+                    Recarregar
+                </v-btn>
             </template>
         </v-data-table>
     </v-app>
@@ -54,6 +68,7 @@
     const baseURL = 'http://localhost:8081'
     export default {
         data: () => ({
+            search: '',
             dialog: false,
             headers: [
                 {

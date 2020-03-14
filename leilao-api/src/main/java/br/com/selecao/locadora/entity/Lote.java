@@ -19,13 +19,11 @@ public class Lote implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "seq_leilao")
     private Long id;
 
-/*
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "LEILAO_LOTE_FK", nullable = false)
+    @JoinColumn(name = "LEILAO", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
-    private Lote leilao_lote_fk;
-*/
+    private Leilao leilao_lote_fk;
 
     @Column(name = "NUMERO_LOTE")
     private Long numeroLote;
@@ -42,8 +40,11 @@ public class Lote implements Serializable {
     @Column(name = "UNIDADE")
     private String unidade;
 
-    @Column(name = "LEILAO")
-    private Long leilao;
+//    @OneToMany
+//    @ManyToOne
+//    @Column(name = "LEILAO_LOTE_FK")
+//    private Leilao leilao;
+
 
     @Column(name = "CREATED_AT")
     private Date createdAt;
@@ -99,13 +100,19 @@ public class Lote implements Serializable {
         this.unidade = unidade;
     }
 
-    public Long getLeilao() {
-        return leilao;
+    public Long getLeilaoId() {
+        return leilao_lote_fk.getId();
     }
 
-    public void setLeilao(Long leilao) {
-        this.leilao = leilao;
+    @JsonIgnore
+    public Leilao getLeilao() {
+        return leilao_lote_fk;
     }
+
+    public void setLeilao(Leilao leilao) {
+        this.leilao_lote_fk = leilao;
+    }
+
 
     public Date getCreatedAt() {
         return createdAt;
@@ -123,15 +130,6 @@ public class Lote implements Serializable {
         this.updatedAt = updateAt;
     }
 
-/*
-    public Lote getLeilao_lote_fk() {
-        return leilao_lote_fk;
-    }
-
-    public void setLeilao_lote_fk(Lote leilao_lote_fk) {
-        this.leilao_lote_fk = leilao_lote_fk;
-    }
-*/
 
     @PrePersist
     void prePersist() {

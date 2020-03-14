@@ -2,7 +2,9 @@ package br.com.selecao.locadora.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -14,6 +16,9 @@ public class Leilao implements Serializable {
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "seq_leilao")
     private Long id;
+
+//    @OneToMany(mappedBy = "leilao", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<Lote> listaMovimentosAdesao = new ArrayList<>();
 
     @Column(name = "CODIGO")
     private Long codigo;
@@ -73,6 +78,14 @@ public class Leilao implements Serializable {
     public void setInicioPrevisto(Date inicioPrevisto) {
         this.inicioPrevisto = inicioPrevisto;
     }
+
+//    public Lote getLote() {
+//        return lote;
+//    }
+
+//    public void setLote(Lote lote) {
+//        this.lote = lote;
+//    }
 
     public Date getCreatedAt() {
         return createdAt;

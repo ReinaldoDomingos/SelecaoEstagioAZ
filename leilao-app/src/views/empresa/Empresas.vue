@@ -2,12 +2,12 @@
     <v-app>
         <v-card>
             <v-card-title>
-                Unidades
+                Empresas Cadastradas
                 <v-spacer></v-spacer>
                 <v-text-field
                         v-model="search"
                         append-icon="mdi-magnify"
-                        label="Search"
+                        label="Pesquisar por uma empresa"
                         single-line
                         hide-details
                 ></v-text-field>
@@ -16,6 +16,7 @@
                     :headers="headers"
                     :items="desserts"
                     :search="search"
+                    no-results-text="Nenhum resultado encontrado"
             ></v-data-table>
         </v-card>
     </v-app>
