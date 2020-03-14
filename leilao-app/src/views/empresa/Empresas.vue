@@ -17,6 +17,7 @@
                     :items="desserts"
                     :search="search"
                     no-results-text="Nenhum resultado encontrado"
+                    no-data-text="Nenhuma Empresa cadastrado"
             ></v-data-table>
         </v-card>
     </v-app>
@@ -46,7 +47,7 @@
             }
         },
         mounted() {
-            let api = 'http://localhost:8081/empresa';
+            let api = 'http://localhost:8081/empresas';
             axios.get(api, {
                 headers: {
                     "Access-Control-Allow-Origin": "*",

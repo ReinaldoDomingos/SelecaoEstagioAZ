@@ -1,34 +1,33 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Unidades from '../views/unidade/Unidades.vue'
+import Unidades from '../views/unidade/Unidades';
+import Empresas from '../views/empresa/Empresas';
+import Leiloes from '../views/leilao/Leiloes';
 
 Vue.use(VueRouter)
 
 const routes = [
     {
         path: '/',
-        name: 'Home',
-        component: Unidades
+        redirect: '/unidades'
     },
     {
         path: '/unidades',
         name: 'Unidades',
-        component: () => import(/* webpackChunkName: "about" */ '../views/unidade/Unidades.vue')
+        component: Unidades
     },
     {
         path: '/empresas',
         name: 'Empresas',
-        component: () => import(/* webpackChunkName: "about" */ '../views/empresa/Empresas.vue')
+        component: Empresas
     },
     {
         path: '/leiloes',
         name: 'Leiloes',
-        component: () => import(/* webpackChunkName: "about" */ '../views/leilao/Leiloes.vue')
+        component: Leiloes
     },
 ]
 
-const router = new VueRouter({
-    routes
-})
+const router = new VueRouter({routes})
 
 export default router

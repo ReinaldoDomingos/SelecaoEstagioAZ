@@ -7,13 +7,14 @@
                 <v-text-field
                         v-model="search"
                         append-icon="mdi-magnify"
-                        label="Pesquisar um Leilão"
+                        label="Pesquisar por um Leilão"
                         single-line
                         hide-details
                 ></v-text-field>
             </v-card-title>
             <v-data-table
                     no-results-text="Nenhum resultado encontrado"
+                    no-data-text="Nenhum Leilão cadastrado"
                     :headers="headers"
                     :items="leiloes"
                     :search="search"
@@ -49,7 +50,7 @@
             }
         },
         mounted() {
-            let api = baseURL + '/leilao';
+            let api = baseURL + '/leiloes';
             axios.get(api).then(res => {
                 let leiloes = res.data
                 for (let i = 0; i < leiloes.length; i++) {
