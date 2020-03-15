@@ -1,6 +1,6 @@
 <template>
     <v-app>
-        <v-data-table :headers="headers" :items="items" sort-by="id" class="elevation-1"
+        <v-data-table :headers="headers" :items="items" sort-by="razaoSocial" class="elevation-1"
                       :search="search" no-results-text="Nenhum resultado encontrado"
                       no-data-text="Nenhuma empresa cadstrada">
             <template v-slot:top>
@@ -103,10 +103,9 @@
             deleteItem(item) {
                 const index = this.items.indexOf(item)
                 let id = this.items[index].id;
-                if (confirm('Tem certeza de que deseja excluir este item?')) {
-                    this.items.splice(index, 1)
-                    axios.delete(baseURLSerividor + "/empresa/" + id)
-                }
+                confirm('Tem certeza de que deseja excluir este item?')
+                && this.items.splice(index, 1)
+                && axios.delete(baseURLSerividor + "/empresa/" + id)
             },
             save() {
                 if (this.editedIndex > -1) {

@@ -97,6 +97,7 @@
                                     if (valorInicial == null)
                                         valorInicial = 0;
                                     let resultado = quantidade * valorInicial;
+                                    console.log(resultado)
                                     leilao.totalDoLeilao += resultado
                                     break
                                 }
