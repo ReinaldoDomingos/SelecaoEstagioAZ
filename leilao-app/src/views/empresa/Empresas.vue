@@ -103,9 +103,10 @@
             deleteItem(item) {
                 const index = this.items.indexOf(item)
                 let id = this.items[index].id;
-                confirm('Tem certeza de que deseja excluir este item?')
-                && this.items.splice(index, 1)
-                && axios.delete(baseURLSerividor + "/empresa/" + id)
+                if (confirm('Tem certeza de que deseja excluir este item?')) {
+                    this.items.splice(index, 1)
+                    axios.delete(baseURLSerividor + "/empresa/" + id)
+                }
             },
             save() {
                 if (this.editedIndex > -1) {
