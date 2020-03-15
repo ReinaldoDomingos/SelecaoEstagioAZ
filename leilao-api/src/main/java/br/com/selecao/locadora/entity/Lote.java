@@ -94,6 +94,10 @@ public class Lote implements Serializable {
         this.unidade = unidade;
     }
 
+    public Long getLeilaoId() {
+        return leilao_lote_fk.getId();
+    }
+
     @JsonIgnore
     public Leilao getLeilao() {
         return leilao_lote_fk;

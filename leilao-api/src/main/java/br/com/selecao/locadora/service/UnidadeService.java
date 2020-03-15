@@ -22,7 +22,7 @@ public class UnidadeService {
     }
 
     @RequestMapping(value = "/unidades/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Unidade> buscarUnidade(@PathVariable("id") @NotNull @DecimalMin("0") Long unidadeId) {
+    public ResponseEntity<Unidade> buscarUnidade(@PathVariable("id") @NotNull @DecimalMin("1") Long unidadeId) {
         return ResponseEntity.ok().body(unidadeBO.buscarUnidade(unidadeId));
     }
 
@@ -32,13 +32,13 @@ public class UnidadeService {
     }
 
     @RequestMapping(value = "/unidades/{id}", method = RequestMethod.PUT)
-    public void update(@PathVariable("id") @NotNull @DecimalMin("0") Long unidadeId, @RequestBody Unidade unidade) {
+    public void update(@PathVariable("id") @NotNull @DecimalMin("1") Long unidadeId, @RequestBody Unidade unidade) {
         System.out.println("update " + unidadeId);
         unidadeBO.update(unidadeId, unidade);
     }
 
     @RequestMapping(value = "/unidades/{id}", method = RequestMethod.DELETE)
-    public void deleteUnidade(@PathVariable("id") @NotNull @DecimalMin("0") Long unidadeId) {
+    public void deleteUnidade(@PathVariable("id") @NotNull @DecimalMin("1") Long unidadeId) {
         unidadeBO.delete(unidadeId);
     }
 }

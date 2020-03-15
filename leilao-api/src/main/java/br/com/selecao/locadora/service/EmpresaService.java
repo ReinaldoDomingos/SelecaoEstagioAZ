@@ -22,7 +22,7 @@ public class EmpresaService {
     }
 
     @RequestMapping(value = "/empresa/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Empresa> buscarEmpresa(@PathVariable("id") @NotNull @DecimalMin("0") Long empresaId) {
+    public ResponseEntity<Empresa> buscarEmpresa(@PathVariable("id") @NotNull @DecimalMin("1") Long empresaId) {
         return ResponseEntity.ok().body(empresaBO.buscarEmpresa(empresaId));
     }
 
@@ -32,7 +32,7 @@ public class EmpresaService {
     }
 
     @RequestMapping(value = "/empresa/{id}", method = RequestMethod.PUT)
-    public void update(@PathVariable("id") @NotNull @DecimalMin("0") Long empresaId, @RequestBody Empresa empresa) {
+    public void update(@PathVariable("id") @NotNull @DecimalMin("1") Long empresaId, @RequestBody Empresa empresa) {
         empresaBO.update(empresaId, empresa);
     }
 

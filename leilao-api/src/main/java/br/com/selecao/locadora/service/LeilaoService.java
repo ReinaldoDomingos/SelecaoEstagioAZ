@@ -22,7 +22,7 @@ public class LeilaoService {
     }
 
     @RequestMapping(value = "/leilao/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Leilao> buscarLeilao(@PathVariable("id") @NotNull @DecimalMin("0") Long leilaoId) {
+    public ResponseEntity<Leilao> buscarLeilao(@PathVariable("id") @NotNull @DecimalMin("1") Long leilaoId) {
         return ResponseEntity.ok().body(leilaoBO.buscarLeilao(leilaoId));
     }
 
@@ -32,7 +32,7 @@ public class LeilaoService {
     }
 
     @RequestMapping(value = "/leilao/{id}", method = RequestMethod.PUT)
-    public void update(@PathVariable("id") @NotNull @DecimalMin("0") Long leilaoId, @RequestBody Leilao leilao) {
+    public void update(@PathVariable("id") @NotNull @DecimalMin("1") Long leilaoId, @RequestBody Leilao leilao) {
         leilaoBO.update(leilaoId, leilao);
     }
 

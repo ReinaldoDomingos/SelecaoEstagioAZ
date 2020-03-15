@@ -22,7 +22,7 @@ public class LoteService {
     }
 
     @RequestMapping(value = "/lote/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Lote> buscarLote(@PathVariable("id") @NotNull @DecimalMin("0") Long loteId) {
+    public ResponseEntity<Lote> buscarLote(@PathVariable("id") @NotNull @DecimalMin("1") Long loteId) {
         return ResponseEntity.ok().body(loteBO.buscarLote(loteId));
     }
 
@@ -32,7 +32,7 @@ public class LoteService {
     }
 
     @RequestMapping(value = "/lote/{id}", method = RequestMethod.PUT)
-    public void update(@PathVariable("id") @NotNull @DecimalMin("0") Long loteId, @RequestBody Lote lote) {
+    public void update(@PathVariable("id") @NotNull @DecimalMin("1") Long loteId, @RequestBody Lote lote) {
         loteBO.update(loteId, lote);
     }
 

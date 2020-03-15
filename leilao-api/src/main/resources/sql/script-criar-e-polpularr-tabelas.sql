@@ -1,16 +1,3 @@
--- Database: leilao
-
--- DROP DATABASE leilao;
-
-CREATE DATABASE leilao
-    WITH
-    OWNER = postgres
-    ENCODING = 'UTF8'
-    LC_COLLATE = 'Portuguese_Brazil.1252'
-    LC_CTYPE = 'Portuguese_Brazil.1252'
-    TABLESPACE = pg_default
-    CONNECTION LIMIT = -1;
-
 -- FUNÇÂO PARA ATUALIZAR ATRIBUTO UPDATEDAT AUTOMATICO;
 CREATE OR REPLACE FUNCTION trigger_set_timestamp()
     RETURNS TRIGGER AS
