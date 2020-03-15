@@ -121,15 +121,24 @@
                 if (this.$refs.form.validate()) {
                     this.mostrarAlerta = false;
                     let data = JSON.stringify(this.empresa);
-                    axios.put(baseURLServidor + "/empresa/" + this.empresa.id, data, {
-                        headers: {
-                            "Access-Control-Allow-Origin": "*",
-                            "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
-                            "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
-                            'Content-Type': 'application/json',
-                        },
-                    }).then(location.href = baseURL + '/#/empresas')
-
+                    if (this.id)
+                        axios.put(baseURLServidor + "/empresa/" + this.empresa.id, data, {
+                            headers: {
+                                "Access-Control-Allow-Origin": "*",
+                                "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+                                "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
+                                'Content-Type': 'application/json',
+                            },
+                        }).then(location.href = baseURL + '/#/empresas')
+                    else
+                        axios.post(baseURLServidor + "/empresa/", data, {
+                            headers: {
+                                "Access-Control-Allow-Origin": "*",
+                                "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+                                "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
+                                'Content-Type': 'application/json',
+                            },
+                        }).then(location.href = baseURL + '/#/empresas')
                 } else {
                     this.mostrarAlerta = true;
                 }
