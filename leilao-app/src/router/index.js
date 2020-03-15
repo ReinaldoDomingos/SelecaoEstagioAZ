@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Unidades from '../views/unidade/Unidades';
 import Empresas from '../views/empresa/Empresas';
+import Empresa from '../views/empresa/Empresa';
 import Leiloes from '../views/leilao/Leiloes';
 
 Vue.use(VueRouter)
@@ -20,6 +21,15 @@ const routes = [
         path: '/empresas',
         name: 'Empresas',
         component: Empresas
+    },
+    {
+        path: '/empresa/',
+        component: Empresa,
+    },
+    {
+        path: '/empresa/:id',
+        component: Empresa,
+        props: true
     },
     {
         path: '/leiloes',

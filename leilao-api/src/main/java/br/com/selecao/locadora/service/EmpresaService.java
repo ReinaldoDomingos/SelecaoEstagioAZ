@@ -16,7 +16,7 @@ public class EmpresaService {
     @Autowired
     private EmpresaBO empresaBO;
 
-    @RequestMapping(value = "/empresa", method = RequestMethod.GET)
+    @RequestMapping(value = "/empresas", method = RequestMethod.GET)
     public ResponseEntity<?> buscarTodos() {
         return ResponseEntity.ok().body(empresaBO.buscarTodos());
     }

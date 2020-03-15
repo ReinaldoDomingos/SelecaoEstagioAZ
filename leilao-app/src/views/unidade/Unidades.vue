@@ -1,7 +1,8 @@
 <template>
     <v-app>
         <v-data-table :headers="headers" :items="items" sort-by="id" class="elevation-1"
-                      :search="search" no-results-text="Nenhum resultado encontrado">
+                      :search="search" no-results-text="Nenhum resultado encontrado"
+                      no-data-text="Nenhuma unidade cadstrada">
             <template v-slot:top>
                 <v-card-title>
                     Unidades Cadastradas
@@ -15,8 +16,6 @@
                     ></v-text-field>
                 </v-card-title>
                 <v-toolbar flat color="white">
-                    <v-toolbar-title>Unidades Cadastradas</v-toolbar-title>
-                    <v-divider class="mx-4" inset vertical></v-divider>
                     <v-spacer></v-spacer>
                     <v-dialog v-model="dialog" max-width="500px">
                         <template v-slot:activator="{ on }">
@@ -151,6 +150,7 @@
                     this.items.push(this.editedItem)
                 }
                 this.close()
+                this.iniciar()
             },
         },
     }

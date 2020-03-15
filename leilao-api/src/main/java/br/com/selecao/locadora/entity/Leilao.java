@@ -17,9 +17,6 @@ public class Leilao implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "seq_leilao")
     private Long id;
 
-//    @OneToMany(mappedBy = "leilao", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private List<Lote> listaMovimentosAdesao = new ArrayList<>();
-
     @Column(name = "CODIGO")
     private Long codigo;
 
@@ -79,24 +76,12 @@ public class Leilao implements Serializable {
         this.inicioPrevisto = inicioPrevisto;
     }
 
-//    public Lote getLote() {
-//        return lote;
-//    }
-
-//    public void setLote(Lote lote) {
-//        this.lote = lote;
-//    }
-
     public Date getCreatedAt() {
         return createdAt;
     }
 
     public void setCreatedAt(Date createAt) {
         this.createdAt = createAt;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
     }
 
     public void setUpdatedAt(Date updateAt) {

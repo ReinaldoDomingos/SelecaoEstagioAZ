@@ -16,7 +16,7 @@ public class LeilaoService {
     @Autowired
     private LeilaoBO leilaoBO;
 
-    @RequestMapping(value = "/leilao", method = RequestMethod.GET)
+    @RequestMapping(value = "/leiloes", method = RequestMethod.GET)
     public ResponseEntity<?> buscarTodos() {
         return ResponseEntity.ok().body(leilaoBO.buscarTodos());
     }

@@ -82,7 +82,7 @@
                 return diaF + "/" + mesF + "/" + anoF;
             },
             calcularTotalLeilao() {
-                axios.get(baseURL + "/lote/").then(response => {
+                axios.get(baseURL + "/lotes/").then(response => {
                     if (response.status == 200) {
                         let lotes = response.data;
                         for (let j = 0; j < lotes.length; j++) {

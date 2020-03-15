@@ -16,7 +16,7 @@ public class LoteService {
     @Autowired
     private LoteBO loteBO;
 
-    @RequestMapping(value = "/lote", method = RequestMethod.GET)
+    @RequestMapping(value = "/lotes", method = RequestMethod.GET)
     public ResponseEntity<?> buscarTodos() {
         return ResponseEntity.ok().body(loteBO.buscarTodos());
     }

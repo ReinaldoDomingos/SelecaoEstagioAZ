@@ -40,12 +40,6 @@ public class Lote implements Serializable {
     @Column(name = "UNIDADE")
     private String unidade;
 
-//    @OneToMany
-//    @ManyToOne
-//    @Column(name = "LEILAO_LOTE_FK")
-//    private Leilao leilao;
-
-
     @Column(name = "CREATED_AT")
     private Date createdAt;
 
@@ -100,10 +94,6 @@ public class Lote implements Serializable {
         this.unidade = unidade;
     }
 
-    public Long getLeilaoId() {
-        return leilao_lote_fk.getId();
-    }
-
     @JsonIgnore
     public Leilao getLeilao() {
         return leilao_lote_fk;
@@ -120,10 +110,6 @@ public class Lote implements Serializable {
 
     public void setCreatedAt(Date createAt) {
         this.createdAt = createAt;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
     }
 
     public void setUpdatedAt(Date updateAt) {

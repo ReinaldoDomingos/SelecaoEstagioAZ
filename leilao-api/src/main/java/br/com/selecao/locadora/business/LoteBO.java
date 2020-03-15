@@ -29,7 +29,6 @@ public class LoteBO {
         lote1.setQuantidade(lote.getQuantidade());
         lote1.setValorInicial(lote.getValorInicial());
         lote1.setUnidade(lote.getUnidade());
-//        lote1.setLeilao(lote.getLeilao());
         loteRepository.saveAndFlush(lote1);
     }
 
@@ -41,7 +40,6 @@ public class LoteBO {
         lote1.setQuantidade(lote.getQuantidade());
         lote1.setValorInicial(lote.getValorInicial());
         lote1.setUnidade(lote.getUnidade());
-//        lote1.setLeilao(lote.getLeilao());
         lote1.setCreatedAt(lote.getCreatedAt());
         lote1.setUpdatedAt(new Date());
         loteRepository.saveAndFlush(lote1);
