@@ -6,7 +6,7 @@ BEGIN
     NEW.updated_at = NOW();
     RETURN NEW;
 END;
-$$ LANGUAGE plpgsql;
+$$ LANGUAGEx plpgsql;
 -- FUNÇÂO PARA ATUALIZAR ATRIBUTO UPDATEDAT AUTOMATICO;
 
 
